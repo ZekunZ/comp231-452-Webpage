@@ -27,7 +27,7 @@ export default function Hero() {
           </div>
           <div className="pt-10 flex justify-center">
             <Image
-              alt="image"
+              alt="game screen shot"
               src="/gamescreen.jpeg"
               width={700}
               height={500}

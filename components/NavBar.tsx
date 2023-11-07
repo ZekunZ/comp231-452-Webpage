@@ -11,7 +11,7 @@ const Navbar = () => {
 
   const navigation = [
     { title: "Game", path: "/game" },
-    { title: "Requests", path: "/" },
+    { title: "Requests", path: "/request" },
   ];
 
   const pathname = usePathname();
