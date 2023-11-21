@@ -3,6 +3,8 @@ import CheckoutForm from "@/components/CheckoutForm";
 import { useState } from "react";
 import Select from "react-tailwindcss-select";
 import { useRouter } from "next/navigation";
+import RequestForm from "@/components/RequestForm";
+import LogoUpload from "@/components/LogoUpload";
 
 const options = [
   { value: "adMoreVisible", label: "Make ads more visible" },
@@ -25,19 +27,27 @@ const Request = () => {
   const Form = () => {
     switch (request.value) {
       case "adMoreVisible":
-        return <h1>H1</h1>;
+        return (
+          <h1 className="text-xl">
+            Please check out and we will make your advertisement more visible!
+          </h1>
+        );
       case "IntroduceIP":
-        return <h1>H2</h1>;
+        return <RequestForm option={"IntroduceIP"} />;
       case "UseCharacter":
-        return <h1>H3</h1>;
+        return <RequestForm option={"UseCharacter"} />;
       case "HostEvents":
-        return <h1>H4</h1>;
+        return <RequestForm option={"HostEvents"} />;
       case "AdInteraction":
-        return <h1>H5</h1>;
+        return (
+          <h1 className="text-xl">
+            Please check out to see your advertisement interaction statistics!
+          </h1>
+        );
       case "AddLogo":
-        return <h1>H6</h1>;
+        return <LogoUpload />;
       case "AddProduct":
-        return <h1>H7</h1>;
+        return <RequestForm option={"AddProduct"} />;
     }
   };
 
@@ -63,7 +73,15 @@ const Request = () => {
   };
 
   const pay = () => {
-    router.push("/");
+    if (
+      ["IntroduceIP", "UseCharacter", "HostEvents", "AddProduct"].includes(
+        request.value
+      )
+    ) {
+      router.push("/game");
+    } else {
+      router.push("/");
+    }
   };
 
   return (
@@ -71,10 +89,7 @@ const Request = () => {
       <div className="max-w-6xl w-full grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12 mt-10">
         <div className="col-span-1">
           <h1 className="text-3xl font-bold mb-10">Your Request</h1>
-          <label
-            htmlFor="requests"
-            className="block mb-2 text-md font-medium text-gray-900 dark:text-white"
-          >
+          <label className="block mb-2 text-md font-medium text-gray-900 dark:text-white">
             Select your request
           </label>
           <Select
@@ -83,7 +98,9 @@ const Request = () => {
             onChange={handleChange}
             options={options}
           />
-          <Form />
+          <div className="mt-4">
+            <Form />
+          </div>
         </div>
         <div className="col-span-1">
           <div className="max-w-md mx-auto p-4 bg-white shadow-lg rounded-2xl dark:bg-gray-800">
