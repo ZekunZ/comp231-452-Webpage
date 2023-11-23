@@ -12,10 +12,12 @@ export default function Hero() {
             Welcome to Dice of Fate
           </h1>
           <p className="max-w-xl mx-auto">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic libero
-            debitis rem voluptatibus excepturi facere maiores unde doloremque
-            quas, aut ipsam quae exercitationem saepe eaque praesentium beatae
-            harum! Debitis, sit.
+            An RPG experience in the palm of your hand. Enter a unique
+            adventure, explore the world and its consequences, and gain the
+            favor or the hate of the inhabitants of this far realm. Dice Of Fate
+            aims to create an engaging story with multiple results in a visual
+            novel experience and dice experience to the decision, making every
+            important encounter an event that can fail.
           </p>
           <div className="flex items-center justify-center gap-x-3 font-medium text-sm">
             <NavLink
@@ -28,9 +30,9 @@ export default function Hero() {
           <div className="pt-10 flex justify-center">
             <Image
               alt="game screen shot"
-              src="/gamescreen.jpeg"
-              width={700}
-              height={500}
+              src="/gamescreen.png"
+              width={1137}
+              height={641}
               className="rounded-lg"
             />
           </div>
