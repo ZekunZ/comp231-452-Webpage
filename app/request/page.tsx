@@ -5,6 +5,7 @@ import Select from "react-tailwindcss-select";
 import { useRouter } from "next/navigation";
 import RequestForm from "@/components/RequestForm";
 import LogoUpload from "@/components/LogoUpload";
+import PaymentModal from "@/components/PaymentModal";
 
 const options = [
   { value: "adMoreVisible", label: "Make ads more visible" },
@@ -19,6 +20,7 @@ const options = [
 const Request = () => {
   const [request, setRequest] = useState(options[0]);
   const router = useRouter();
+  const [showModal, setShowModal] = useState(false);
 
   const handleChange = (request: any) => {
     setRequest(request);
@@ -73,14 +75,10 @@ const Request = () => {
   };
 
   const pay = () => {
-    if (
-      ["IntroduceIP", "UseCharacter", "HostEvents", "AddProduct"].includes(
-        request.value
-      )
-    ) {
-      router.push("/game");
+    if (request.value === "AdInteraction") {
+      router.push("/statistic");
     } else {
-      router.push("/");
+      router.push("/game");
     }
   };
 
@@ -120,10 +118,24 @@ const Request = () => {
             </p>
           </div>
           <div>
-            <CheckoutForm onClick={pay} />
+            <CheckoutForm
+              onClick={() => {
+                setShowModal(true);
+              }}
+            />
           </div>
         </div>
       </div>
+      {showModal ? (
+        <PaymentModal
+          onClick={() => {
+            pay();
+            setShowModal(false);
+          }}
+          content={request}
+          total={(cost() * 1.13).toFixed(2)}
+        />
+      ) : null}
     </div>
   );
 };
