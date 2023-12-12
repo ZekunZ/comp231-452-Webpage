@@ -8,6 +8,7 @@ export default function Modal() {
         className="block font-medium text-sm text-white bg-gray-800 hover:bg-gray-600 active:bg-gray-900 md:inline py-2.5 px-4 text-center rounded-lg duration-150"
         type="button"
         onClick={() => setShowModal(true)}
+        data-testid="release-schedule"
       >
         Release Schedule
       </button>
@@ -27,11 +28,8 @@ export default function Modal() {
                 <div className="relative p-6 flex-auto">
                   <div className="my-4 text-blueGray-500 text-lg leading-relaxed">
                     <ul>
-                      <li>1</li>
-                      <li>2</li>
-                      <li>3</li>
-                      <li>4</li>
-                      <li>5</li>
+                      <li>1. First release 2023-12-13</li>
+                      <li>2. Next release 2024-01-09</li>
                     </ul>
                   </div>
                 </div>

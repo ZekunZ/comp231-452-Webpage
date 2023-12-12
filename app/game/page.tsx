@@ -29,7 +29,7 @@ const Game = () => {
         image={ads[0].image}
         description={ads[0].description}
       ></Ad>
-      <div className="w-5/6">
+      <div className="w-5/6" data-testid="game">
         <iframe
           className="w-full aspect-video"
           src="https://diceoffate.onrender.com"
