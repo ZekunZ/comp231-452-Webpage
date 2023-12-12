@@ -7,6 +7,8 @@ First, install dependencies and run the development server:
 ```bash
 npm install
 
+npm run dev
+
 ```
 
 Run test if necessary:
